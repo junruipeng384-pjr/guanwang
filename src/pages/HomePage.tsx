@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { ArrowRight, Zap, Monitor, Wifi, HardDrive, Cpu, Truck, Shield, Headphones, Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { useCart } from "../hooks/useCart";
 import { products } from "../data/products";
+import { publicAsset } from "@/lib/utils";
 import AxonexLayout from "../components/layout/AxonexLayout";
 
 const heroSlides = [
@@ -103,7 +104,7 @@ export default function HomePage() {
             </div>
             <div className="flex items-center justify-center">
               <img
-                src={heroIdx === 0 ? "/images/g3pro-main.jpg" : "/images/product-main.jpg"}
+                src={heroIdx === 0 ? publicAsset("/images/g3pro-main.jpg") : publicAsset("/images/product-main.jpg")}
                 alt={hero.title}
                 className="w-full max-w-lg object-contain drop-shadow-2xl"
                 style={{ filter: "drop-shadow(0 25px 50px rgba(0,0,0,0.5))" }}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Search, Package, Truck, CheckCircle, Clock, MapPin, ChevronDown, ChevronUp } from "lucide-react";
 import AxonexLayout from "../components/layout/AxonexLayout";
+import { publicAsset } from "@/lib/utils";
 
 interface Order {
   id: string;
@@ -26,8 +27,8 @@ const mockOrders: Record<string, Order> = {
       { label: "Delivered", time: "Est. Dec 13, 2024 by 6:00 PM", done: false },
     ],
     items: [
-      { name: "AXONEX M5 Plus Mini PC — 32GB/1TB", qty: 1, price: 329.0, image: "/images/product-main.jpg" },
-      { name: "AXONEX 12-in-1 USB-C Dock", qty: 1, price: 79.0, image: "/images/product-thumb-4.jpg" },
+      { name: "AXONEX M5 Plus Mini PC — 32GB/1TB", qty: 1, price: 329.0, image: publicAsset("/images/product-main.jpg") },
+      { name: "AXONEX 12-in-1 USB-C Dock", qty: 1, price: 79.0, image: publicAsset("/images/product-thumb-4.jpg") },
     ],
     shipping: { method: "FedEx Express (2-3 Days)", address: "1200 Innovation Dr, San Jose, CA 95134", tracking: "FX1234567890", estDelivery: "December 13, 2024" },
     totals: { subtotal: 408.0, shipping: 0, tax: 36.72, total: 444.72 },
@@ -45,7 +46,7 @@ const mockOrders: Record<string, Order> = {
       { label: "Delivered", time: "Dec 4, 2024 at 11:23 AM", done: true },
     ],
     items: [
-      { name: "AXONEX S1 2TB NVMe SSD", qty: 1, price: 129.0, image: "/images/product-thumb-3.jpg" },
+      { name: "AXONEX S1 2TB NVMe SSD", qty: 1, price: 129.0, image: publicAsset("/images/product-thumb-3.jpg") },
     ],
     shipping: { method: "FedEx Express (2-3 Days)", address: "1200 Innovation Dr, San Jose, CA 95134", tracking: "FX0987654321", estDelivery: "December 4, 2024" },
     totals: { subtotal: 129.0, shipping: 0, tax: 11.61, total: 140.61 },
