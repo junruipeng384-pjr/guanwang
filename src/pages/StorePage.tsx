@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link, useParams, useSearchParams } from "react-router";
-import { Star, ShoppingCart, SlidersHorizontal, Grid3X3, LayoutList, Search, X } from "lucide-react";
+import { ShoppingCart, SlidersHorizontal, Grid3X3, LayoutList, Search, X } from "lucide-react";
+import StarRating from "../components/StarRating";
 import { useCart } from "../hooks/useCart";
 import { products, categories } from "../data/products";
 import AxonexLayout from "../components/layout/AxonexLayout";
@@ -117,7 +118,7 @@ export default function StorePage() {
                     <div className="p-4 flex flex-col flex-1">
                       <Link to={`/product/${p.id}`}><h3 className="text-sm font-medium line-clamp-2 hover:underline" style={{ color: "#333" }}>{p.name}</h3></Link>
                       <div className="flex items-center gap-1 my-1">
-                        {Array.from({ length: 5 }, (_, i) => (<Star key={i} size={11} fill={i < p.rating ? "#FFB400" : "none"} color={i < p.rating ? "#FFB400" : "#ddd"} />))}
+                        <StarRating rating={p.rating} size={11} />
                         <span className="text-[11px]" style={{ color: "#888" }}>({p.reviews})</span>
                       </div>
                       <div className="flex items-center gap-2 mb-2">

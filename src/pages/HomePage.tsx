@@ -4,6 +4,7 @@ import { ArrowRight, Zap, Monitor, Wifi, HardDrive, Cpu, Truck, Shield, Headphon
 import { useCart } from "../hooks/useCart";
 import { products } from "../data/products";
 import { publicAsset } from "@/lib/utils";
+import StarRating from "../components/StarRating";
 import AxonexLayout from "../components/layout/AxonexLayout";
 
 const heroSlides = [
@@ -156,7 +157,7 @@ export default function HomePage() {
                   <h3 className="text-sm font-medium line-clamp-2 mb-1 hover:underline" style={{ color: "#333" }}>{p.shortName}</h3>
                 </Link>
                 <div className="flex items-center gap-1 mb-2">
-                  {Array.from({ length: 5 }, (_, i) => (<Star key={i} size={11} fill={i < p.rating ? "#FFB400" : "none"} color={i < p.rating ? "#FFB400" : "#ddd"} />))}
+                  <StarRating rating={p.rating} size={11} />
                   <span className="text-[11px]" style={{ color: "#888" }}>({p.reviews})</span>
                 </div>
                 <div className="flex items-center justify-between">

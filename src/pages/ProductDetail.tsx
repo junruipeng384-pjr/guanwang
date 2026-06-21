@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router";
-import { Minus, Plus, Heart, ArrowLeftRight, Share2, Truck, Shield, RotateCcw, CheckCircle, Star } from "lucide-react";
+import { Minus, Plus, Heart, ArrowLeftRight, Share2, Truck, Shield, RotateCcw, CheckCircle } from "lucide-react";
 import { useCart } from "../hooks/useCart";
 import { getProductById, products, categories } from "../data/products";
 import AxonexLayout from "../components/layout/AxonexLayout";
+import StarRating from "../components/StarRating";
 
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
@@ -91,10 +92,8 @@ export default function ProductDetail() {
             <h1 className="text-xl sm:text-2xl font-bold leading-tight mb-2" style={{ color: "#222" }}>{product.name}</h1>
 
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex items-center gap-0.5">
-                {Array.from({ length: 5 }, (_, i) => (<Star key={i} size={15} fill={i < product.rating ? "#FFB400" : "none"} color={i < product.rating ? "#FFB400" : "#ddd"} />))}
-              </div>
-              <span className="text-sm font-medium" style={{ color: "var(--color-link)" }}>{product.rating}</span>
+              <StarRating rating={product.rating} size={15} />
+              <span className="text-sm font-medium" style={{ color: "var(--color-link)" }}>{product.rating.toFixed(1)}</span>
               <span className="text-sm" style={{ color: "#888" }}>({product.reviews} verified reviews)</span>
             </div>
 
@@ -217,7 +216,10 @@ export default function ProductDetail() {
                     <p className="text-sm font-medium line-clamp-1" style={{ color: "#333" }}>{p.shortName}</p>
                     <div className="flex items-center justify-between mt-1">
                       <span className="font-bold" style={{ color: "var(--color-accent)" }}>${p.price.toFixed(2)}</span>
-                      <span className="flex items-center gap-1 text-[11px]" style={{ color: "#888" }}><Star size={10} fill="#FFB400" color="#FFB400" /> {p.rating}.0</span>
+                      <span className="flex items-center gap-1 text-[11px]" style={{ color: "#888" }}>
+                        <StarRating rating={p.rating} size={10} />
+                        {p.rating.toFixed(1)}
+                      </span>
                     </div>
                   </div>
                 </Link>
