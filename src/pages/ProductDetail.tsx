@@ -94,7 +94,7 @@ export default function ProductDetail() {
               <div className="flex items-center gap-0.5">
                 {Array.from({ length: 5 }, (_, i) => (<Star key={i} size={15} fill={i < product.rating ? "#FFB400" : "none"} color={i < product.rating ? "#FFB400" : "#ddd"} />))}
               </div>
-              <span className="text-sm font-medium" style={{ color: "var(--color-link)" }}>{product.rating}.0</span>
+              <span className="text-sm font-medium" style={{ color: "var(--color-link)" }}>{product.rating}</span>
               <span className="text-sm" style={{ color: "#888" }}>({product.reviews} verified reviews)</span>
             </div>
 

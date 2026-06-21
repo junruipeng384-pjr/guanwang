@@ -38,7 +38,7 @@ export const products: Product[] = [
     category: "mini-pcs",
     price: 229.0,
     originalPrice: 279.0,
-    rating: 5,
+    rating: 4.8,
     reviews: 186,
     image: p("/images/g3pro-main.jpg"),
     images: [p("/images/g3pro-main.jpg"), p("/images/g3pro-exploded.png"), p("/images/g3pro-cpu.png"), p("/images/g3pro-modes.png"), p("/images/g3pro-dual4k.png"), p("/images/g3pro-ports.png")],
